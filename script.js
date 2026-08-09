@@ -140,33 +140,11 @@ document.addEventListener('DOMContentLoaded', function () {
     alert('Subscribed! Watch your inbox for SpiceHot offers.');
   });
 
-  /* ---------------- Active nav link on scroll ---------------- */
+  /* ---------------- Close mobile navbar after clicking a link ----------------
+     Note: highlighting the active nav link on scroll is already handled by
+     Bootstrap's built-in scrollspy (see data-bs-spy="scroll" on <body>), so we
+     don't need to duplicate that logic here. */
   const navLinks = document.querySelectorAll('#navbarSupportedContent .nav-link');
-  const sections = ['home', 'about', 'menu', 'contact'].map(function (id) {
-    return document.getElementById(id);
-  });
-
-  function setActiveLink() {
-    let currentId = sections[0].id;
-    const scrollPos = window.scrollY + 100;
-
-    sections.forEach(function (section) {
-      if (section.offsetTop <= scrollPos) {
-        currentId = section.id;
-      }
-    });
-
-    navLinks.forEach(function (link) {
-      const linkId = link.getAttribute('href').replace('#', '');
-      link.classList.toggle('active', linkId === currentId);
-      link.closest('li').classList.toggle('active', linkId === currentId);
-    });
-  }
-
-  window.addEventListener('scroll', setActiveLink);
-  setActiveLink();
-
-  /* Close mobile navbar after clicking a link */
   const navbarCollapseEl = document.getElementById('navbarSupportedContent');
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {

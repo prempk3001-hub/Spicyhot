@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 *{
     margin: 0;
     padding: 0;
@@ -6,11 +6,72 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* SpiceHot brand palette */
+    --brand-primary: #ff4500;
+    --brand-primary-dark: #d93c00;
+    --brand-secondary: #2b1a12;
+    --brand-surface: #ffffff;
+    --brand-bg: #f6f1ec;
+    --brand-text: #2b1a12;
+    --brand-text-muted: #6b6259;
+    --brand-accent: #fbaf32;
+
+    /* Re-theme Bootstrap's primary to match the brand instead of default blue */
+    --bs-primary: var(--brand-primary);
+    --bs-primary-rgb: 255, 69, 0;
+}
+
 html {
     scroll-padding-top: 80px; /* keeps anchored sections clear of the fixed navbar */
 }
 body {
     overflow-x: hidden;
+    color: var(--brand-text);
+}
+
+/* Skip link: hidden until focused, helps keyboard/screen-reader users bypass the nav */
+.skip-link {
+    position: absolute;
+    top: -60px;
+    left: 1rem;
+    z-index: 2000;
+    background: var(--brand-primary);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 0 0 6px 6px;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 0;
+}
+
+/* Re-theme Bootstrap utility classes to the brand color so CTAs stay visually consistent */
+.btn-primary {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--brand-primary-dark);
+    border-color: var(--brand-primary-dark);
+}
+.text-primary {
+    color: var(--brand-primary) !important;
+}
+.border-primary {
+    border-color: var(--brand-primary) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 /* nav */
 
@@ -98,19 +159,22 @@ body {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .carousel-caption h5 {
+  .carousel-caption h2 {
     font-size: 28px;
   }
   .carousel-item {
     max-height: 500px;
   }
 }
-.carousel-caption h5{
+.carousel-caption h2{
     font-size: 50px;
     font-weight: 700;
 }
 .carousel-caption p{
     font-size: 18px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .carousel-caption a{
     margin-top: 30px;
@@ -146,7 +210,8 @@ body {
   scroll-margin-top: 80px;
   
 }
-#menu h1 {
+#menu h2,
+#about h2 {
   font-size: 40px;
   font-weight: 800;
   letter-spacing: 2px;
@@ -161,16 +226,26 @@ body {
   font-size: 14px;
   font-weight:300;
   letter-spacing: 0.3px;
+  color: var(--brand-text-muted);
+  flex-grow: 1;
+}
+#menu .card-title {
+  font-size: 1.15rem;
 }
 .card {
   border-radius: 20px !important;
   box-shadow:0 10px 25px rgba(0, 0, 0, 0.12);
   overflow: hidden;
-  transition: 0.3s box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
  transform: translateY(-6px);
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
 }
 #noResults.show {
   display: block !important;
