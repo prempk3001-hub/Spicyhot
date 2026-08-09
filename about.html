@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - SpiceHot Authentic Indian Restaurant | Delicious Food Delivered Fast</title>
+    <meta name="description"
+        content="SpiceHot is a modern Indian restaurant serving freshly made biryanis, dosas, curries and more, delivered hot to your door in Puducherry.">
+    <!-- Bootstrap & icon libraries load first so our own style.css can safely override them without !important -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top px-3" id="navbar">
+        <div class="container-fluid px-0 ">
+            <a class="navbar-brand fw-bold" href="index.html">SpiceHot</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Chef">Chef</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Reviews">Reviews</a></li>
+                </ul>
+                <!-- Search -->
+                <form class="d-flex flex-column flex-lg-row ms-lg-3 mt-3 mt-lg-0" id="menuSearchForm" role="search">
+                    <input class="form-control mb-2 mb-lg-0 me-lg-2" type="search" id="menuSearch" placeholder="Search"
+                        aria-label="Search menu">
+                    <button class="btn btn-outline-success">Search</button>
+                </form>
+                <!-- Cart -->
+                <!-- <button type="button" id="cartToggle" class="btn btn-outline-dark mt-3 mt-lg-0 ms-lg-3"
+                    data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                    🛒 Cart (<span id="cart-count">0</span>)
+                </button> -->
+            </div>
+        </div>
+    </nav>
+    <!--About Start-->
+    <section id="about">
+        <div class="container">
+            <h2 class="text-center my-5">ABOUT US</h2>
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s"
+                                src="images/background/bg-SpicyHot-1.1.jpg" alt="Freshly cooked SpiceHot curry close-up"
+                                loading="lazy">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s"
+                                src="images/background/bg-Header-1.png" style="margin-top: 25%;"
+                                alt="SpiceHot restaurant interior" loading="lazy">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s"
+                                src="images/background/banner-SpicyHot-1.jpg" alt="SpiceHot signature biryani platter"
+                                loading="lazy">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s"
+                                src="images/menu/Masala Dosa.jpg"
+                                alt="Crispy masala dosa served with chutney and sambar" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>SpiceHot</h3>
+                    <p class="mb-4">SpiceHot is a modern Indian kitchen serving home-style favourites made fresh to
+                        order &mdash; from fluffy idlis and crisp dosas to slow-cooked biryanis and creamy dal makhani.
+                    </p>
+                    <p class="mb-4">We use quality ingredients and traditional spices to bring you the taste of a
+                        home-cooked meal, delivered hot to your door in minutes.</p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <span class="flex-shrink-0 display-5 text-primary mb-0"
+                                    data-toggle="counter-up">15+</span>
+                                <div class="ps-4">
+                                    <p class="mb-0">Years of</p>
+                                    <h6 class="text-uppercase mb-0">Service</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <span class="flex-shrink-0 display-5 text-primary mb-0"
+                                    data-toggle="counter-up">10+</span>
+                                <div class="ps-4">
+                                    <p class="mb-0">Handmade</p>
+                                    <h6 class="text-uppercase mb-0">Signature Dishes</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="#menu">Explore Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About End -->
+    <!-- Chef Details -->
+    <div class="container chef-section" id="Chef">
+        <div class="section-heading text-center">
+            <span>Meet Our Chef</span>
+            <h2>Passion Behind Every Dish</h2>
+            <p>
+                Great food begins with passion, fresh ingredients, and years of experience.
+            </p>
+        </div>
+
+        <div class="row align-items-center mt-5">
+            <div class="col-lg-5 mb-4 mb-lg-0">
+                <div class="chef-image">
+                    <!-- Replace this with your own chef image -->
+                    <img src="images/chef-1.jpg" alt="Chef Arjun Kumar preparing food">
+                    <div class="chef-badge">
+                        <strong>12+</strong>
+                        <span>Years Experience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="chef-content">
+                    <span class="chef-role">HEAD CHEF & CULINARY DIRECTOR</span>
+                    <h3>Chef Arjun Kumar</h3>
+
+                    <p>
+                        Chef Arjun Kumar is the creative force behind SpiceHot. With more
+                        than 12 years of culinary experience, he brings together traditional
+                        Indian flavours and modern cooking techniques.
+                    </p>
+
+                    <p>
+                        From aromatic biryanis to crispy dosas and flavourful curries,
+                        every dish is prepared with carefully selected ingredients and
+                        a passion for authentic taste.
+                    </p>
+
+                    <div class="chef-specialities">
+                        <div>
+                            <i class="fas fa-utensils"></i>
+                            <span>Indian Cuisine</span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-fire"></i>
+                            <span>Specialty Biryani</span>
+                        </div>
+
+                        <div>
+                            <i class="fas fa-leaf"></i>
+                            <span>Fresh Ingredients</span>
+                        </div>
+                    </div>
+
+                    <blockquote>
+                        "Every dish should tell a story and bring people together."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HEAD CHEF SECTION -->
+
+    <!-- OTHER CHEFS -->
+    <div class="other-chefs">
+        <div class="section-heading text-center"> <span>Our Kitchen Team</span>
+            <h2>Meet Our Chefs</h2>
+            <p> A talented team working together to bring delicious food to your table. </p>
+        </div>
+        <div class="row g-4 mt-4"> <!-- Chef 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="team-chef-card">
+                    <div class="team-chef-image"> <img src="images/Chef-2.jpg" alt="Chef Meena Lakshmi"> </div>
+                    <div class="team-chef-content"> <span>SOUTH INDIAN CHEF</span>
+                        <h3>Chef Meena Lakshmi</h3>
+                        <p> Specializes in traditional South Indian dishes, dosas, idlis, sambars, and delicious
+                            vegetarian recipes. </p>
+                        <div class="team-chef-speciality"> <i class="fas fa-leaf"></i> South Indian Cuisine </div>
+                    </div>
+                </div>
+            </div> <!-- Chef 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="team-chef-card">
+                    <div class="team-chef-image"> <img src="images/Chef-3.jpg" alt="Chef Rahul Sharma"> </div>
+                    <div class="team-chef-content"> <span>SPECIALTY CHEF</span>
+                        <h3>Chef Rahul Sharma</h3>
+                        <p> Creates rich curries, grilled dishes, and traditional North Indian recipes packed with
+                            authentic flavours. </p>
+                        <div class="team-chef-speciality"> <i class="fas fa-fire"></i> Curries & Grill </div>
+                    </div>
+                </div>
+            </div> <!-- Chef 4 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="team-chef-card">
+                    <div class="team-chef-image"> <img src="images/Chef-4.jpg" alt="Chef Priya Nair"> </div>
+                    <div class="team-chef-content"> <span>DESSERT CHEF</span>
+                        <h3>Chef Priya Nair</h3>
+                        <p> Creates delicious Indian sweets, desserts, and creative treats that give every meal a
+                            perfect finish. </p>
+                        <div class="team-chef-speciality"> <i class="fas fa-cookie-bite"></i> Desserts & Sweets </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> 
+    
+    <!-- END CHEF SECTION -->
+    <!-- Customer Reviews -->
+    <div class="container reviews-section" id="Reviews">
+        <div class="section-heading text-center">
+            <span>What Our Customers Say</span>
+            <h2>Customer Reviews</h2>
+            <p>
+                We love hearing from our customers. Here are some of their favourite
+                SpiceHot experiences.
+            </p>
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <!-- Review 1 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "The chicken biryani was absolutely delicious! The rice was
+                        perfectly cooked and the flavours were amazing."
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="review-avatar">PS</div>
+                        <div>
+                            <h5>Priya S.</h5>
+                            <small>Happy Customer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "One of the best dosas I've had in a long time. Crispy, fresh
+                        and served with really tasty chutney and sambar."
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="review-avatar">RM</div>
+                        <div>
+                            <h5>Rahul M.</h5>
+                            <small>Happy Customer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "SpiceHot has become my go-to place for a quick and delicious
+                        meal. Everything tastes fresh and homemade."
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="review-avatar">AR</div>
+                        <div>
+                            <h5>Ananya R.</h5>
+                            <small>Happy Customer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="col-md-6 col-lg-3">
+                <div class="review-card">
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Loved the mutton biryani! Generous portion, tender meat and
+                        wonderful spices. Highly recommended."
+                    </p>
+
+                    <div class="reviewer">
+                        <div class="review-avatar">VK</div>
+                        <div>
+                            <h5>Vikram K.</h5>
+                            <small>Happy Customer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Footer start -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row m-l30">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">SpiceHot</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><i class="fas fa-map-marker-alt fa-fw" aria-hidden="true"></i> White Town, Puducherry, India
+                        </li>
+                        <li><i class="fa fa-phone fa-fw" aria-hidden="true"></i> <a class="text-decoration-none"
+                                href="tel:+919344465420">+91 93444 65420</a></li>
+                        <li><i class="fa fa-envelope fa-fw" aria-hidden="true"></i> <a class="text-decoration-none"
+                                href="mailto:hello@spicehot.in">hello@spicehot.in</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">For Restaurants</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Partner With Us</a></li>
+                        <li><a class="text-decoration-none" href="#">Apps For You</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#home">Home</a></li>
+                        <li><a class="text-decoration-none" href="#menu">Menu</a></li>
+                        <li><a class="text-decoration-none" href="#contact">Contact</a></li>
+                        <li><a class="text-decoration-none" href="#about">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                                    class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                                    class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="visually-hidden" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="email" class="form-control bg-dark border-light text-light" id="subscribeEmail"
+                            placeholder="Email address">
+                        <button class="input-group-text btn-success text-light" id="subscribeBtn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <p class="text-left text-light mb-0">
+                    Copyright &copy; 2026 SpiceHot | Crafted by Premkumar
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+</body>
+
+</html>
