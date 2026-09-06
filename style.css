@@ -123,6 +123,90 @@ body {
 #cartToggle {
   white-space: nowrap;
 }
+
+.quick-order {
+  background: var(--brand-secondary);
+  color: #fff;
+  padding: 28px 0;
+}
+
+.quick-order__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.quick-order__eyebrow,
+.menu-heading span {
+  margin: 0 0 6px;
+  color: var(--brand-primary);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.quick-order h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.quick-order p:not(.quick-order__eyebrow) {
+  margin: 5px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.quick-order__button {
+  flex: 0 0 auto;
+  padding: 0.8rem 1.25rem;
+  font-weight: 700;
+}
+
+.menu-heading {
+  padding: 76px 0 20px;
+}
+
+.menu-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 800;
+}
+
+.menu-heading p {
+  max-width: 630px;
+  margin: 12px auto 0;
+  color: var(--brand-text-muted);
+}
+
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px 0 14px;
+}
+
+.menu-filter {
+  border: 1px solid #e6cfc2;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand-secondary);
+  padding: 0.52rem 1rem;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.menu-filter:hover,
+.menu-filter.is-active {
+  border-color: var(--brand-primary);
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.mobile-order-button {
+  display: none;
+}
 /* ------Slider------ */
 #home{
   padding-top: 0;
@@ -726,6 +810,45 @@ body {
 ========================================= */
 
 @media (max-width: 768px) {
+
+    body {
+        padding-bottom: 72px;
+    }
+
+    .quick-order {
+        padding: 24px 0;
+    }
+
+    .quick-order__content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .quick-order__button {
+        width: 100%;
+    }
+
+    .menu-heading {
+        padding-top: 54px;
+    }
+
+    .mobile-order-button {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        left: 14px;
+        z-index: 1050;
+        display: block;
+        border-radius: 999px;
+        background: #25D366;
+        color: #fff;
+        padding: 0.9rem 1rem;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+        font-weight: 800;
+        text-align: center;
+        text-decoration: none;
+    }
 
     .chef-section {
         padding-top: 50px;
