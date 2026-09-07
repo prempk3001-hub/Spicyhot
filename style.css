@@ -344,7 +344,7 @@ body {
 
 #menuGrid {
     --bs-gutter-x: 10px;
-    --bs-gutter-y: 14px;
+    --bs-gutter-y: 14px !important;
     margin-left: 0;
     margin-right: 0;
 }
