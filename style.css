@@ -399,6 +399,12 @@ body {
     line-height: 1.35;
     color: #777;
     margin-bottom: 10px;
+ /* Show only 2 lines */
+        display: -webkit-box !important;
+        line-clamp: 2 !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
 }
 
 /* ADD TO CART */
