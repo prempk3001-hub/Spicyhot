@@ -56,6 +56,10 @@
                     <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <a href="login.html" class="header-login-btn mt-3 mt-lg-0 ms-lg-3" aria-label="Login to SpiceHot">
+                    <i class="fa-solid fa-user me-2" aria-hidden="true"></i>
+                    Login
+                </a>
                 <!-- Cart -->
                 <button type="button" id="cartToggle" class="btn btn-outline-dark mt-3 mt-lg-0 ms-lg-3"
                     data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
@@ -1126,20 +1130,23 @@
         <!-- Cart Offcanvas -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="cartOffcanvasLabel">Your Cart</h5>
+                <div>
+                    <p class="cart-panel-kicker">Restaurant Order</p>
+                    <h5 class="offcanvas-title" id="cartOffcanvasLabel">My Order</h5>
+                </div>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body d-flex flex-column">
                 <ul class="list-unstyled flex-grow-1" id="cartItems">
-                    <li class="text-muted" id="cartEmptyMsg">Your cart is empty.</li>
+                    <li class="text-muted" id="cartEmptyMsg">Your basket is empty.</li>
                 </ul>
-                <div class="border-top pt-3">
+                <div class="cart-summary-box">
                     <div class="d-flex justify-content-between fw-bold fs-5 mb-3">
                         <span>Total</span>
                         <span>₹<span id="cartTotal">0</span></span>
                     </div>
                     <button class="btn btn-primary w-100" id="checkoutBtn"><i class="fa-brands fa-whatsapp"
-                            aria-hidden="true"></i> Order on WhatsApp</button>
+                            aria-hidden="true"></i> Place order on WhatsApp</button>
                 </div>
             </div>
         </div>
@@ -1431,10 +1438,16 @@
         </div>
     </footer>
 
-    <a class="mobile-order-button"
-        href="https://wa.me/919344465420?text=Hi%20SpiceHot%2C%20I%20would%20like%20to%20place%20an%20order."
-        target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Order on
-        WhatsApp</a>
+    <button type="button" class="mobile-order-button" id="mobileCartButton"
+        data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas"
+        aria-label="Open my order">
+        <span class="mobile-order-label">My Order</span>
+        <span class="mobile-order-count" id="mobileCartCount">0</span>
+    </button>
+
+    <button type="button" class="scroll-top-button" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <script type="application/ld+json">
     {

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpiceHot Profile</title>
+  <meta name="description" content="Manage your SpiceHot profile and account details.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f8f4f1 0%, #f1e7df 100%);
+    }
+
+    .profile-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .profile-card {
+      width: min(100%, 980px);
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 28px;
+      border: 1px solid rgba(43, 26, 18, 0.08);
+      box-shadow: 0 25px 60px rgba(43, 26, 18, 0.12);
+      overflow: hidden;
+    }
+
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 2rem 2rem 1.5rem;
+      background: linear-gradient(180deg, rgba(255, 69, 0, 0.07), rgba(255, 255, 255, 0.2));
+    }
+
+    .profile-header h1 {
+      margin: 0;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      color: var(--brand-secondary);
+    }
+
+    .logout-btn {
+      border: 0;
+      border-radius: 999px;
+      background: var(--brand-secondary);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+    }
+
+    .logout-btn:hover {
+      color: #fff;
+      background: #1c120d;
+    }
+
+    .profile-body {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+    }
+
+    .profile-sidebar {
+      background: #fffaf7;
+      border-right: 1px solid rgba(43, 26, 18, 0.08);
+      padding: 2rem 1.5rem;
+    }
+
+    .profile-avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-primary) 0%, #de5f1d 100%);
+      color: #fff;
+      font-size: 2.2rem;
+      box-shadow: 0 15px 30px rgba(255, 69, 0, 0.22);
+    }
+
+    .profile-name {
+      text-align: center;
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--brand-secondary);
+    }
+
+    .profile-id {
+      text-align: center;
+      color: var(--brand-text-muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .profile-nav {
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .profile-nav a {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0.8rem 0.9rem;
+      border-radius: 12px;
+      color: var(--brand-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      background: transparent;
+    }
+
+    .profile-nav a.active,
+    .profile-nav a:hover {
+      background: rgba(255, 69, 0, 0.08);
+      color: var(--brand-primary);
+    }
+
+    .profile-content {
+      padding: 2rem;
+    }
+
+    .content-panel {
+      background: #fff;
+      border: 1px solid rgba(43, 26, 18, 0.06);
+      border-radius: 20px;
+      padding: 1.5rem;
+    }
+
+    .content-panel h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--brand-secondary);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .info-item {
+      background: #fff8f4;
+      border: 1px solid rgba(255, 69, 0, 0.08);
+      border-radius: 14px;
+      padding: 1rem;
+    }
+
+    .label {
+      display: block;
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .value {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--brand-secondary);
+      word-break: break-word;
+    }
+
+    @media (max-width: 768px) {
+      .profile-body {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-sidebar {
+        border-right: 0;
+        border-bottom: 1px solid rgba(43, 26, 18, 0.08);
+      }
+
+      .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="profile-shell">
+    <div class="profile-card">
+      <div class="profile-header">
+        <h1>My Account</h1>
+        <button type="button" class="logout-btn">Log out</button>
+      </div>
+
+      <div class="profile-body">
+        <aside class="profile-sidebar">
+          <div class="profile-avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
+          <div class="profile-name" id="profileName">Customer</div>
+          <div class="profile-id" id="profileUserId">@user</div>
+
+          <nav class="profile-nav" aria-label="Profile navigation">
+            <a class="active" href="#"><i class="fa-solid fa-user-circle"></i> Profile</a>
+            <a href="#"><i class="fa-solid fa-bag-shopping"></i> Orders</a>
+            <a href="#"><i class="fa-solid fa-heart"></i> Favourites</a>
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Addresses</a>
+          </nav>
+        </aside>
+
+        <main class="profile-content">
+          <section class="content-panel">
+            <h2>Account Details</h2>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="label">Full Name</span>
+                <span class="value" id="fullNameValue">-</span>
+              </div>
+              <div class="info-item">
+                <span class="label">User ID</span>
+                <span class="value" id="userIdValue">-</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Email</span>
+                <span class="value" id="emailValue">-</span>
+              </div>
+              <div class="info-item">
+                <span class="label">Account Status</span>
+                <span class="value">Active</span>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script>
+    (function () {
+      const user = JSON.parse(localStorage.getItem('spicehotCurrentUser') || 'null');
+      if (!user) {
+        window.location.href = 'login.html';
+        return;
+      }
+
+      const users = JSON.parse(localStorage.getItem('spicehotUsers') || '[]');
+      const savedUser = users.find(function (person) {
+        return person.email === user.email || person.userId === user.userId;
+      }) || user;
+
+      document.getElementById('profileName').textContent = savedUser.name || 'Customer';
+      document.getElementById('profileUserId').textContent = '@' + (savedUser.userId || 'user');
+      document.getElementById('fullNameValue').textContent = savedUser.name || 'Customer';
+      document.getElementById('userIdValue').textContent = savedUser.userId || '-';
+      document.getElementById('emailValue').textContent = savedUser.email || '-';
+
+      const logoutBtn = document.querySelector('.logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', function () {
+          localStorage.removeItem('spicehotCurrentUser');
+          window.location.href = 'login.html';
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

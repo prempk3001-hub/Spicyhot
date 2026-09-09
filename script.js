@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  if (performance.getEntriesByType('navigation')[0] && performance.getEntriesByType('navigation')[0].type === 'reload') {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
   /* ---------------- Cart ---------------- */
   const cart = {}; // { name: { price, qty } }
 
@@ -7,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const cartEmptyMsg = document.getElementById('cartEmptyMsg');
   const cartCountEl = document.getElementById('cart-count');
   const cartTotalEl = document.getElementById('cartTotal');
+  const mobileCartCountEl = document.getElementById('mobileCartCount');
+  const mobileCartButton = document.getElementById('mobileCartButton');
+  const cartOffcanvas = document.getElementById('cartOffcanvas');
 
   function renderCart() {
     const names = Object.keys(cart);
@@ -39,6 +49,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     cartCountEl.textContent = totalCount;
     cartTotalEl.textContent = totalPrice;
+
+    if (mobileCartCountEl) {
+      mobileCartCountEl.textContent = totalCount;
+    }
+
+    if (mobileCartButton) {
+      const isOpen = cartOffcanvas && cartOffcanvas.classList.contains('show');
+      const hasItems = totalCount > 0;
+      mobileCartButton.classList.toggle('is-visible', hasItems && !isOpen);
+      mobileCartButton.classList.toggle('is-hidden', !hasItems || isOpen);
+      mobileCartButton.setAttribute('aria-label', hasItems ? 'Open cart with ' + totalCount + ' item' + (totalCount > 1 ? 's' : '') : 'Open cart');
+    }
   }
 
   document.querySelectorAll('.add-to-cart').forEach(function (btn) {
@@ -104,15 +126,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
   renderCart();
 
-  const cartOffcanvas = document.getElementById('cartOffcanvas');
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function () {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 260);
+    });
+
+    scrollTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   const mobileOrderButton = document.querySelector('.mobile-order-button');
   if (cartOffcanvas && mobileOrderButton) {
     cartOffcanvas.addEventListener('show.bs.offcanvas', function () {
       mobileOrderButton.classList.add('is-hidden');
+      mobileOrderButton.classList.remove('is-visible');
     });
 
     cartOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
       mobileOrderButton.classList.remove('is-hidden');
+      const hasItems = Object.keys(cart).length > 0;
+      if (hasItems) {
+        mobileOrderButton.classList.add('is-visible');
+      }
     });
   }
 
