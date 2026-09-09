@@ -84,29 +84,56 @@ document.addEventListener('DOMContentLoaded', function () {
       alert('Your cart is empty — add a dish first!');
       return;
     }
+
+    const customerName = 'Customer';
     const orderLines = Object.keys(cart).map(function (name) {
       const item = cart[name];
-      return '- ' + name + ' x' + item.qty + ' — ₹' + (item.price * item.qty);
+      return '- ' + name + ' x' + item.qty + ' = ₹' + (item.price * item.qty);
     });
-    const message = 'Hi SpiceHot, I would like to order:%0A' + orderLines.join('%0A') + '%0A%0ATotal: ₹' + cartTotalEl.textContent;
+
+    const message =
+      'Hello SpiceHot,%0A' +
+      'I would like to place an order.%0A%0A' +
+      'Customer: ' + customerName + '%0A' +
+      'Items:%0A' + orderLines.join('%0A') + '%0A%0A' +
+      'Total Amount: ₹' + cartTotalEl.textContent + '%0A' +
+      'Please confirm the order and share the delivery time.';
+
     window.open('https://wa.me/919344465420?text=' + encodeURIComponent(decodeURIComponent(message)), '_blank', 'noopener');
   });
 
   renderCart();
 
+  const cartOffcanvas = document.getElementById('cartOffcanvas');
+  const mobileOrderButton = document.querySelector('.mobile-order-button');
+  if (cartOffcanvas && mobileOrderButton) {
+    cartOffcanvas.addEventListener('show.bs.offcanvas', function () {
+      mobileOrderButton.classList.add('is-hidden');
+    });
+
+    cartOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
+      mobileOrderButton.classList.remove('is-hidden');
+    });
+  }
+
   /* ---------------- Menu search ---------------- */
   const searchInput = document.getElementById('menuSearch');
+  const menuSearchForm = document.getElementById('menuSearchForm');
   const menuItems = document.querySelectorAll('.menu-item');
   const noResults = document.getElementById('noResults');
 
-  document.getElementById('menuSearchForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-  });
+  if (menuSearchForm) {
+    menuSearchForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+  }
 
-  searchInput.addEventListener('input', function () {
-    const term = searchInput.value.trim().toLowerCase();
-    applyMenuFilter(activeFilter, term);
-  });
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      const term = searchInput.value.trim().toLowerCase();
+      applyMenuFilter(activeFilter, term);
+    });
+  }
 
   let activeFilter = 'all';
   const filterButtons = document.querySelectorAll('.menu-filter');
@@ -114,20 +141,23 @@ document.addEventListener('DOMContentLoaded', function () {
   function applyMenuFilter(category, term) {
     let visibleCount = 0;
     menuItems.forEach(function (item) {
-      const matchesSearch = item.dataset.search.includes(term);
+      const matchesSearch = (item.dataset.search || '').includes(term);
       const matchesCategory = category === 'all' || (item.dataset.category || '').split(' ').includes(category);
       const match = matchesSearch && matchesCategory;
       item.style.display = match ? '' : 'none';
       if (match) visibleCount++;
     });
-    noResults.classList.toggle('show', visibleCount === 0);
+    if (noResults) {
+      noResults.classList.toggle('show', visibleCount === 0);
+    }
   }
 
   filterButtons.forEach(function (button) {
     button.addEventListener('click', function () {
       activeFilter = button.dataset.filter;
       filterButtons.forEach(function (item) { item.classList.toggle('is-active', item === button); });
-      applyMenuFilter(activeFilter, searchInput.value.trim().toLowerCase());
+      const term = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      applyMenuFilter(activeFilter, term);
     });
   });
 
